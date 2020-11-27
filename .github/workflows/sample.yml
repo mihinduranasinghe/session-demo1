@@ -1,0 +1,24 @@
+name: shell-commands
+
+on: [push]
+
+jobs:
+    run-shell-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo a string
+              run: echo "Hello"
+
+            - name: multiline commands
+              run: |
+                  node -v
+                  npm -v
+
+            - name: colining repo into vm
+              uses: actions/checkout@v2.3.4
+
+    run-windows-command:
+        runs-on: windows-latest
+        steps:
+            - name: Directory echo
+              run: pwd
